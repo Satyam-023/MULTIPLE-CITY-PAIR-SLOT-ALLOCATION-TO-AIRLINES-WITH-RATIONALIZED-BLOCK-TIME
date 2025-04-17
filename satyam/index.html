@@ -1,0 +1,2250 @@
+am/index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Righteous"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oleo Script Swash Caps"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Courgette"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Comic Neue"
+      rel="stylesheet"
+    />
+    <title>Sky Connect - Airline Booking System</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #b0d3d9;
+        color: #333;
+      }
+
+      .container {
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(9, 9, 121, 1) 35%,
+          rgba(0, 212, 255, 1) 100%
+        );
+        color: white;
+        padding: 15px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 20px 20px;
+      }
+
+      .logo {
+        font-size: 50px;
+        font-weight: bold;
+        font-family: "Righteous", sans-serif;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav ul {
+        display: flex;
+        list-style-type: none;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: rgb(241, 241, 241);
+        font-family: "Comic Neue", sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #66ccff;
+      }
+
+      .hero {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("Banner-Image.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        margin-bottom: 50px;
+        border-radius: 20px 20px 0 0;
+        position: relative;
+        top: 5px;
+        animation: fadeIn 1s ease-out;
+      }
+
+      .hero h1 {
+        font-size: 70px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-family: "Oleo Script Swash Caps", cursive;
+      }
+
+      .hero p {
+        font-size: 25px;
+        margin-bottom: 30px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "Courgette", cursive;
+      }
+
+      .cta-button {
+        background-color: #3a59d1;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-family: "Righteous", sans-serif;
+      }
+
+      .cta-button:hover {
+        background-color: #e55c00;
+      }
+
+      .features {
+        padding: 50px 0;
+      }
+
+      .features h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 32px;
+        color: #003366;
+        font-family: "Righteous", sans-serif;
+      }
+
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .card {
+        background-color: #f0f8ff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        animation: slideInLeft 0.8s ease-out;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      .card-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .card:hover .card-img img {
+        transform: scale(1.1);
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .card h3 {
+        margin-bottom: 15px;
+        color: #003366;
+      }
+
+      .card p {
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .card-button {
+        display: inline-block;
+        background-color: #003366;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .card-button:hover {
+        background-color: #00478f;
+      }
+
+      .destinations {
+        padding: 50px 0;
+        background-color: #f0f8ff;
+      }
+
+      .destinations h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 32px;
+        color: #003366;
+        font-family: "Righteous", sans-serif;
+      }
+
+      .destination-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .destination-item {
+        position: relative;
+        height: 300px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        animation: slideInRight 0.8s ease-out;
+      }
+
+      .destination-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .destination-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .destination-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        padding: 20px;
+        color: white;
+      }
+
+      .destination-overlay h3 {
+        margin-bottom: 5px;
+      }
+
+      .destination-price {
+        font-weight: bold;
+      }
+
+      .search-section,
+      .slot-section,
+      .multi-city-section {
+        background-color: white;
+        padding: 30px;
+        margin: 30px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-section h2,
+      .slot-section h2,
+      .multi-city-section h2 {
+        margin-bottom: 20px;
+        color: #003366;
+        font-family: "Righteous", sans-serif;
+      }
+
+      .search-form,
+      .slot-form,
+      .multi-city-form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .search-btn,
+      .allocate-btn,
+      .multi-city-btn {
+        background-color: #ff6600;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .search-btn:hover,
+      .allocate-btn:hover,
+      .multi-city-btn:hover {
+        background-color: #e55c00;
+      }
+
+      .city-pair-container {
+        margin-bottom: 20px;
+      }
+
+      .city-pair {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 15px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+
+      .add-city-pair {
+        background-color: #003366;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-bottom: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .add-city-pair:hover {
+        background-color: #00478f;
+      }
+
+      .flights-section,
+      .slot-results,
+      .all-flights-section {
+        margin-top: 30px;
+      }
+
+      .flights-section h2,
+      .slot-results h2,
+      .all-flights-section h2 {
+        margin-bottom: 20px;
+        color: #003366;
+        font-family: "Righteous", sans-serif;
+      }
+
+      .flight-list,
+      .all-flights-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .flight-card,
+      .slot-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: center;
+        transition: transform 0.2s;
+      }
+
+      .slot-card {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .flight-card:hover,
+      .slot-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .airline-logo {
+        text-align: center;
+        font-size: 32px;
+        color: #003366;
+      }
+
+      .flight-details {
+        padding: 0 20px;
+      }
+
+      .flight-route {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .flight-time {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .flight-cities {
+        font-size: 14px;
+        color: #777;
+      }
+
+      .flight-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .flight-price {
+        text-align: right;
+      }
+
+      .price-amount {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff6600;
+        margin-bottom: 10px;
+      }
+
+      .book-btn {
+        background-color: #003366;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .book-btn:hover {
+        background-color: #00478f;
+      }
+
+      .block-time {
+        font-size: 14px;
+        color: #555;
+        margin-top: 5px;
+        padding: 5px;
+        background-color: #eef7ff;
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background-color: white;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 600px;
+        padding: 30px;
+        position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #777;
+      }
+
+      .booking-form {
+        margin-top: 20px;
+      }
+
+      .passenger-info {
+        margin-bottom: 20px;
+      }
+
+      .passenger-info h3 {
+        margin-bottom: 15px;
+        color: #003366;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .payment-info h3 {
+        margin-bottom: 15px;
+        color: #003366;
+      }
+
+      .confirm-btn {
+        background-color: #ff6600;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .confirm-btn:hover {
+        background-color: #e55c00;
+      }
+
+      .bookings-section {
+        padding: 30px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 50px;
+      }
+
+      .bookings-section h2 {
+        margin-bottom: 20px;
+        color: #003366;
+        font-family: "Righteous", sans-serif;
+      }
+
+      .booking-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .booking-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        background-color: #f9f9f9;
+      }
+
+      .booking-details h3 {
+        color: #003366;
+        margin-bottom: 10px;
+      }
+
+      .booking-details p {
+        margin-bottom: 5px;
+        color: #666;
+      }
+
+      .booking-actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      .cancel-btn {
+        background-color: #ff3333;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+      }
+
+      .cancel-btn:hover {
+        background-color: #e60000;
+      }
+
+      .booking-status {
+        font-weight: bold;
+        color: #008000;
+      }
+
+      .booking-status-cancelled {
+        color: #ff3333;
+      }
+
+      footer {
+        background-color: #003366;
+        color: white;
+        padding: 50px 0 20px;
+        margin-top: 50px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background-color: #ff6600;
+      }
+
+      .footer-column ul {
+        list-style-type: none;
+        font-weight: bold;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-column ul li a:hover {
+        color: #fff;
+      }
+
+      .footer-column p {
+        color: #ccc;
+        line-height: 1.6;
+        font-weight: bold;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .social-links a {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: #ff6600;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #ccc;
+        font-size: 14px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        margin-top: 15px;
+      }
+
+      .newsletter-form input {
+        flex-grow: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+        font-size: 14px;
+      }
+
+      .newsletter-form button {
+        background-color: #ff6600;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .newsletter-form button:hover {
+        background-color: #e55c00;
+      }
+
+      .loading {
+        display: none;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .spinner {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #003366;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .tabs {
+        display: flex;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .tab-button {
+        padding: 10px 20px;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-bottom: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px 5px 0 0;
+        margin-right: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .tab-button.active {
+        background-color: #003366;
+        color: white;
+        border-color: #003366;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .search-box {
+        display: flex;
+        margin-bottom: 20px;
+        gap: 10px;
+      }
+
+      .search-input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .flight-card,
+        .slot-card {
+          grid-template-columns: 1fr;
+          gap: 15px;
+          text-align: center;
+        }
+
+        .flight-route {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .flight-price {
+          text-align: center;
+        }
+
+        .hero h1 {
+          font-size: 32px;
+        }
+
+        .hero p {
+          font-size: 16px;
+        }
+
+        .booking-card {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .booking-actions {
+          align-items: center;
+        }
+
+        .tabs {
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .tab-button {
+          border-radius: 4px;
+          border: 1px solid #ddd;
+          margin-right: 0;
+        }
+      }
+
+      #home-page,
+      #slot-page,
+      #booking-page {
+        display: none;
+      }
+
+      .success-message {
+        background-color: #dff0d8;
+        color: #3c763d;
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        display: none;
+      }
+
+      .no-items-message {
+        text-align: center;
+        padding: 30px;
+        color: #666;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transition: all 0.6s ease-out;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+      }
+
+      .floating-image {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .stats-section {
+        background-color: #f8f9fa;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .stat-item {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-10px);
+      }
+
+      .stat-number {
+        font-size: 48px;
+        font-weight: bold;
+        color: #003366;
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        font-size: 18px;
+        color: #666;
+      }
+
+      .testimonials-section {
+        padding: 80px 0;
+        background-color: #fff;
+      }
+
+      .testimonials-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .testimonial-card {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+        margin: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .testimonial-author {
+        font-weight: bold;
+        color: #003366;
+      }
+
+      .partners-section {
+        padding: 60px 0;
+        background-color: #f8f9fa;
+        text-align: center;
+      }
+
+      .partners-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .partner-logo {
+        height: 60px;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+      }
+
+      .partner-logo:hover {
+        opacity: 1;
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, #003366 0%, #00478f 100%);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .cta-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .cta-description {
+        font-size: 18px;
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .cta-button-secondary {
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
+      }
+
+      .cta-button-secondary:hover {
+        background-color: white;
+        color: #003366;
+      }
+
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.7;
+      }
+
+      .stat-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        object-fit: cover;
+      }
+
+      .gallery-section {
+        padding: 80px 0;
+        background-color: #f8f9fa;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .gallery-item {
+        position: relative;
+        height: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        padding: 20px;
+        color: white;
+      }
+
+      .gallery-overlay p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .partner-logo {
+        height: 60px;
+        opacity: 0.7;
+        transition: all 0.3s ease;
+        filter: grayscale(100%);
+      }
+
+      .partner-logo:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Sky Connect</div>
+          <nav>
+            <ul>
+              <li><a href="#" id="home-link">Home</a></li>
+              <li><a href="#" id="my-bookings-link">My Bookings</a></li>
+              <li><a href="#" id="slot-allocation-link">Slot Allocation</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="admin.html" style="color: #ff6600;">Admin</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="home-page">
+        <section class="hero">
+          <div class="container">
+            <h1>Your Journey Begins with Sky Connect</h1>
+            <p>
+              Experience seamless travel with the best prices, flexible booking
+              options, and world-class customer service.
+            </p>
+            <button class="cta-button floating-image" id="get-started-btn">GET STARTED</button>
+          </div>
+          <div class="hero-background">
+            <img src="images/hero-airplane.jpg" alt="Airplane in sky" class="hero-image">
+          </div>
+        </section>
+
+        <section class="stats-section">
+          <div class="stats-container">
+            <div class="stat-item animate-on-scroll">
+              <img src="images/happy-travelers.jpg" alt="Happy Travelers" class="stat-image">
+              <div class="stat-number">10M+</div>
+              <div class="stat-label">Happy Travelers</div>
+            </div>
+            <div class="stat-item animate-on-scroll">
+              <img src="images/world-map.jpg" alt="Destinations" class="stat-image">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Destinations</div>
+            </div>
+            <div class="stat-item animate-on-scroll">
+              <img src="images/customer-support.jpg" alt="Customer Support" class="stat-image">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Customer Support</div>
+            </div>
+            <div class="stat-item animate-on-scroll">
+              <img src="images/on-time-flight.jpg" alt="On-time Flights" class="stat-image">
+              <div class="stat-number">99%</div>
+              <div class="stat-label">On-time Flights</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="features container">
+          <h2>Why Choose Sky Connect?</h2>
+          <div class="card-container">
+            <div class="card animate-on-scroll">
+              <div class="card-img">
+                <img src="images/best-price.jpg" alt="Best Price Guarantee" />
+              </div>
+              <div class="card-content">
+                <h3>Best Price Guarantee</h3>
+                <p>
+                  We ensure you get the most competitive prices across all major
+                  airlines. If you find a lower price elsewhere, we'll match it.
+                </p>
+                <a href="#" class="card-button">Learn More</a>
+              </div>
+            </div>
+            <div class="card animate-on-scroll">
+              <div class="card-img">
+                <img src="images/flexible-booking.jpg" alt="Flexible Bookings" />
+              </div>
+              <div class="card-content">
+                <h3>Flexible Bookings</h3>
+                <p>
+                  Change your travel plans with minimal fees. Our flexible
+                  booking options allow you to modify dates or destinations when
+                  needed.
+                </p>
+                <a href="#" class="card-button">Learn More</a>
+              </div>
+            </div>
+            <div class="card animate-on-scroll">
+              <div class="card-img">
+                <img src="images/customer-service.jpg" alt="24/7 Support" />
+              </div>
+              <div class="card-content">
+                <h3>24/7 Support</h3>
+                <p>
+                  Our customer service team is available around the clock to
+                  assist you with any questions or issues during your journey.
+                </p>
+                <a href="#" class="card-button">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="testimonials-section">
+          <div class="testimonials-container">
+            <h2 class="animate-on-scroll">What Our Customers Say</h2>
+            <div class="card-container">
+              <div class="testimonial-card animate-on-scroll">
+                <p class="testimonial-text">"Sky Connect made my travel experience seamless. The booking process was smooth, and their customer service is exceptional!"</p>
+                <p class="testimonial-author">- Sarah Johnson</p>
+              </div>
+              <div class="testimonial-card animate-on-scroll">
+                <p class="testimonial-text">"I've been using Sky Connect for all my business trips. Their competitive prices and reliable service keep me coming back."</p>
+                <p class="testimonial-author">- Michael Chen</p>
+              </div>
+              <div class="testimonial-card animate-on-scroll">
+                <p class="testimonial-text">"The best travel booking platform I've used. Their mobile app is user-friendly, and I love the real-time flight updates."</p>
+                <p class="testimonial-author">- Emily Rodriguez</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="destinations">
+          <div class="container">
+            <h2>Popular Destinations</h2>
+            <div class="destination-grid">
+              <div class="destination-item animate-on-scroll">
+                <img src="images/new-york.jpg" alt="New York" />
+                <div class="destination-overlay">
+                  <h3>New York</h3>
+                  <p class="destination-price">From $299</p>
+                </div>
+              </div>
+              <div class="destination-item animate-on-scroll">
+                <img src="images/paris.jpg" alt="Paris" />
+                <div class="destination-overlay">
+                  <h3>Paris</h3>
+                  <p class="destination-price">From $449</p>
+                </div>
+              </div>
+              <div class="destination-item animate-on-scroll">
+                <img src="images/tokyo.jpg" alt="Tokyo" />
+                <div class="destination-overlay">
+                  <h3>Tokyo</h3>
+                  <p class="destination-price">From $699</p>
+                </div>
+              </div>
+              <div class="destination-item animate-on-scroll">
+                <img src="images/sydney.jpg" alt="Sydney" />
+                <div class="destination-overlay">
+                  <h3>Sydney</h3>
+                  <p class="destination-price">From $899</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="gallery-section">
+          <div class="container">
+            <h2>Travel Moments</h2>
+            <div class="gallery-grid">
+              <div class="gallery-item animate-on-scroll">
+                <img src="images/business-class.jpg" alt="Business Class">
+                <div class="gallery-overlay">
+                  <p>Business Class Experience</p>
+                </div>
+              </div>
+              <div class="gallery-item animate-on-scroll">
+                <img src="images/airport-lounge.jpg" alt="Airport Lounge">
+                <div class="gallery-overlay">
+                  <p>Luxury Lounges</p>
+                </div>
+              </div>
+              <div class="gallery-item animate-on-scroll">
+                <img src="images/inflight-entertainment.jpg" alt="In-Flight Entertainment">
+                <div class="gallery-overlay">
+                  <p>In-Flight Entertainment</p>
+                </div>
+              </div>
+              <div class="gallery-item animate-on-scroll">
+                <img src="images/airline-food.jpg" alt="Airline Food">
+                <div class="gallery-overlay">
+                  <p>Gourmet Dining</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="partners-section">
+          <h2>Our Trusted Partners</h2>
+          <div class="partners-container">
+            <img src="images/emirates-logo.png" alt="Emirates" class="partner-logo animate-on-scroll">
+            <img src="images/singapore-airlines-logo.png" alt="Singapore Airlines" class="partner-logo animate-on-scroll">
+            <img src="images/qatar-airways-logo.png" alt="Qatar Airways" class="partner-logo animate-on-scroll">
+            <img src="images/lufthansa-logo.png" alt="Lufthansa" class="partner-logo animate-on-scroll">
+          </div>
+        </section>
+
+        <section class="cta-section">
+          <div class="cta-content">
+            <h2 class="cta-title">Ready to Start Your Journey?</h2>
+            <p class="cta-description">Join millions of travelers who trust Sky Connect for their travel needs. Book your next adventure today!</p>
+            <div class="cta-buttons">
+              <button class="cta-button" id="get-started-btn-2">Book Now</button>
+              <button class="cta-button cta-button-secondary">Learn More</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="booking-page" class="container">
+        <div class="success-message" id="success-message">
+          Your booking has been successfully confirmed! You can view all your
+          bookings in the "My Bookings" section.
+        </div>
+
+        <section class="search-section">
+          <h2>Search Flights</h2>
+          <form class="search-form" id="search-form">
+            <div class="form-group">
+              <label for="origin">From</label>
+              <input
+                type="text"
+                id="origin"
+                name="origin"
+                placeholder="City or Airport"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="destination">To</label>
+              <input
+                type="text"
+                id="destination"
+                name="destination"
+                placeholder="City or Airport"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="departure-date">Departure Date</label>
+              <input
+                type="date"
+                id="departure-date"
+                name="departure-date"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="return-date">Return Date (Optional)</label>
+              <input type="date" id="return-date" name="return-date" />
+            </div>
+            <div class="form-group">
+              <label for="passengers">Passengers</label>
+              <select id="passengers" name="passengers">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="class">Class</label>
+              <select id="class" name="class">
+                <option value="economy">Economy</option>
+                <option value="business">Business</option>
+                <option value="first">First Class</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="search-btn">Search Flights</button>
+            </div>
+          </form>
+        </section>
+
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p>Searching for the best available flights...</p>
+        </div>
+
+        <section class="flights-section" id="flights-section">
+          <h2>Available Flights</h2>
+          <div class="flight-list" id="flight-list">
+            <!-- Flight cards will be inserted here by JavaScript -->
+          </div>
+        </section>
+
+        <section class="bookings-section" id="bookings-section">
+          <div class="tabs">
+            <button class="tab-button active" data-tab="my-bookings">My Bookings</button>
+            <button class="tab-button" data-tab="all-flights">Available Flights</button>
+          </div>
+
+          <div class="tab-content active" id="my-bookings-tab">
+            <div class="search-box">
+              <input type="email" id="booking-email" class="search-input" placeholder="Enter your email to view bookings" />
+              <button class="cta-button" id="view-bookings-btn">View My Bookings</button>
+            </div>
+
+            <div class="booking-list" id="booking-list">
+              <!-- Booking cards will be inserted here by JavaScript -->
+              <div class="no-items-message">Enter your email address to view your bookings</div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="all-flights-tab">
+            <div class="loading" id="all-flights-loading">
+              <div class="spinner"></div>
+              <p>Loading all available flights...</p>
+            </div>
+
+            <div class="all-flights-list" id="all-flights-list">
+              <!-- All flights will be loaded here -->
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="slot-page" class="container">
+        <section class="slot-section">
+          <h2>Multiple City Pair Slot Allocation</h2>
+          <form class="slot-form" id="slot-form">
+            <div id="city-pairs">
+              <div class="city-pair">
+                <div class="form-group">
+                  <label for="slot-origin-1">Origin</label>
+                  <input
+                    type="text"
+                    id="slot-origin-1"
+                    name="slot-origin-1"
+                    placeholder="e.g., New York"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="slot-destination-1">Destination</label>
+                  <input
+                    type="text"
+                    id="slot-destination-1"
+                    name="slot-destination-1"
+                    placeholder="e.g., Chicago"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="preferred-time-1">Preferred Time</label>
+                  <input
+                    type="time"
+                    id="preferred-time-1"
+                    name="preferred-time-1"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="aircraft-type-1">Aircraft Type</label>
+                  <select id="aircraft-type-1" name="aircraft-type-1">
+                    <option value="narrow">Narrow-body</option>
+                    <option value="wide">Wide-body</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="add-city-pair" id="add-pair-btn">
+              Add City Pair
+            </button>
+            <div class="form-group">
+              <label for="max-block-time">Max Block Time (minutes)</label>
+              <input
+                type="number"
+                id="max-block-time"
+                name="max-block-time"
+                placeholder="e.g., 180"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <button type="submit" class="allocate-btn">Allocate Slots</button>
+            </div>
+          </form>
+        </section>
+
+        <div class="loading" id="slot-loading">
+          <div class="spinner"></div>
+          <p>Allocating slots across city pairs...</p>
+        </div>
+
+        <section class="slot-results" id="slot-results" style="display: none">
+          <h2>Allocated Slots</h2>
+          <div id="slot-list">
+            <!-- Slot cards will be inserted here by JavaScript -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>About Sky Connect</h3>
+            <p>
+              Sky Connect is a leading online airline booking platform offering
+              the best deals on flights worldwide with exceptional customer
+              service.
+            </p>
+            <div class="social-links">
+              <a href="#">F</a>
+              <a href="#">T</a>
+              <a href="#">I</a>
+              <a href="#">L</a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Useful Links</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact Info</h3>
+            <ul>
+              <li>Address: 123 Aviation Way, Flight City</li>
+              <li>Phone: +1 (555) 123-4567</li>
+              <li>Email: support@skyconnect.com</li>
+              <li>Hours: Mon-Fri 9am-6pm</li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Newsletter</h3>
+            <p>Subscribe to our newsletter for the latest deals and updates.</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your Email Address" required />
+              <button type="submit">Go</button>
+            </form>
+          </div>
+        </div>
+        <div class="copyright">© 2025 Sky Connect. All Rights Reserved.</div>
+      </div>
+    </footer>
+
+    <div class="modal" id="booking-modal">
+      <div class="modal-content">
+        <span class="close-modal" id="close-modal">×</span>
+        <h2>Book Your Flight</h2>
+        <div id="selected-flight-details">
+          <!-- Selected flight details will be inserted here -->
+        </div>
+        <form class="booking-form" id="booking-form">
+          <input type="hidden" id="booking-flight-id">
+          <div class="passenger-info">
+            <h3>Passenger Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+            </div>
+          </div>
+          <div class="payment-info">
+            <h3>Payment Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input
+                  type="text"
+                  id="card-number"
+                  name="card-number"
+                  placeholder="XXXX XXXX XXXX XXXX"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="card-name">Name on Card</label>
+                <input type="text" id="card-name" name="card-name" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expiry-date">Expiry Date</label>
+                <input
+                  type="text"
+                  id="expiry-date"
+                  name="expiry-date"
+                  placeholder="MM/YY"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input
+                  type="text"
+                  id="cvv"
+                  name="cvv"
+                  placeholder="XXX"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="confirm-btn">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // DOM Elements
+      const homeLink = document.getElementById("home-link");
+      const myBookingsLink = document.getElementById("my-bookings-link");
+      const slotAllocationLink = document.getElementById("slot-allocation-link");
+      const getStartedBtn = document.getElementById("get-started-btn");
+      const homePage = document.getElementById("home-page");
+      const bookingPage = document.getElementById("booking-page");
+      const slotPage = document.getElementById("slot-page");
+      const searchForm = document.getElementById("search-form");
+      const slotForm = document.getElementById("slot-form");
+      const loadingIndicator = document.getElementById("loading");
+      const slotLoading = document.getElementById("slot-loading");
+      const flightsSection = document.getElementById("flights-section");
+      const flightList = document.getElementById("flight-list");
+      const bookingsSection = document.getElementById("bookings-section");
+      const bookingList = document.getElementById("booking-list");
+      const slotResults = document.getElementById("slot-results");
+      const slotList = document.getElementById("slot-list");
+      const addPairBtn = document.getElementById("add-pair-btn");
+      const bookingModal = document.getElementById("booking-modal");
+      const closeModal = document.getElementById("close-modal");
+      const selectedFlightDetails = document.getElementById("selected-flight-details");
+      const bookingForm = document.getElementById("booking-form");
+      const bookingFlightId = document.getElementById("booking-flight-id");
+      const successMessage = document.getElementById("success-message");
+      const viewBookingsBtn = document.getElementById("view-bookings-btn");
+      const bookingEmail = document.getElementById("booking-email");
+      const allFlightsList = document.getElementById("all-flights-list");
+      const allFlightsLoading = document.getElementById("all-flights-loading");
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      // API endpoint
+      const API_URL = "backend.php";
+
+      // Store city pair count for slot allocation
+      let cityPairCount = 1;
+
+      // Navigation Functions
+      function showHomePage() {
+        homePage.style.display = "block";
+        bookingPage.style.display = "none";
+        slotPage.style.display = "none";
+      }
+
+      function showBookingPage() {
+        homePage.style.display = "none";
+        bookingPage.style.display = "block";
+        slotPage.style.display = "none";
+        flightsSection.style.display = "none";
+      }
+
+      function showSlotPage() {
+        homePage.style.display = "none";
+        bookingPage.style.display = "none";
+        slotPage.style.display = "block";
+        slotResults.style.display = "none";
+      }
+
+      // Tab functionality
+      tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons and content
+          tabButtons.forEach(btn => btn.classList.remove("active"));
+          tabContents.forEach(content => content.classList.remove("active"));
+
+          // Add active class to clicked button and its content
+          button.classList.add("active");
+          const tabId = button.getAttribute("data-tab") + "-tab";
+          document.getElementById(tabId).classList.add("active");
+
+          // Load content based on tab
+          if (button.getAttribute("data-tab") === "all-flights") {
+            loadAllFlights();
+          }
+        });
+      });
+
+      // Event Listeners
+      homeLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        showHomePage();
+      });
+
+      myBookingsLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        homePage.style.display = "none";
+        bookingPage.style.display = "block";
+        slotPage.style.display = "none";
+        flightsSection.style.display = "none";
+        bookingsSection.style.display = "block";
+        successMessage.style.display = "none";
+
+        // Show my bookings tab
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        tabContents.forEach(content => content.classList.remove("active"));
+        document.querySelector('[data-tab="my-bookings"]').classList.add("active");
+        document.getElementById("my-bookings-tab").classList.add("active");
+      });
+
+      slotAllocationLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        showSlotPage();
+      });
+
+      getStartedBtn.addEventListener("click", () => {
+        showBookingPage();
+        // Set default dates
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById("departure-date").valueAsDate = tomorrow;
+        const returnDate = new Date(today);
+        returnDate.setDate(returnDate.getDate() + 8);
+        document.getElementById("return-date").valueAsDate = returnDate;
+      });
+
+      // View Bookings Button
+      viewBookingsBtn.addEventListener("click", () => {
+        fetchBookings();
+      });
+
+      // Add City Pair for Slot Allocation
+      addPairBtn.addEventListener("click", () => {
+        cityPairCount++;
+        const newPair = document.createElement("div");
+        newPair.className = "city-pair";
+        newPair.innerHTML = `
+            <div class="form-group">
+                <label for="slot-origin-${cityPairCount}">Origin</label>
+                <input type="text" id="slot-origin-${cityPairCount}" name="slot-origin-${cityPairCount}" placeholder="e.g., New York" required>
+            </div>
+            <div class="form-group">
+                <label for="slot-destination-${cityPairCount}">Destination</label>
+                <input type="text" id="slot-destination-${cityPairCount}" name="slot-destination-${cityPairCount}" placeholder="e.g., Chicago" required>
+            </div>
+            <div class="form-group">
+                <label for="preferred-time-${cityPairCount}">Preferred Time</label>
+                <input type="time" id="preferred-time-${cityPairCount}" name="preferred-time-${cityPairCount}" required>
+            </div>
+            <div class="form-group">
+                <label for="aircraft-type-${cityPairCount}">Aircraft Type</label>
+                <select id="aircraft-type-${cityPairCount}" name="aircraft-type-${cityPairCount}">
+                    <option value="narrow">Narrow-body</option>
+                    <option value="wide">Wide-body</option>
+                </select>
+            </div>
+        `;
+        document.getElementById("city-pairs").appendChild(newPair);
+      });
+
+      // Slot Allocation Form Submission
+      slotForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        slotLoading.style.display = "block";
+        slotResults.style.display = "none";
+
+        // Gather city pair data
+        const cityPairs = [];
+        for (let i = 1; i <= cityPairCount; i++) {
+          cityPairs.push({
+            origin: document.getElementById(`slot-origin-${i}`).value,
+            destination: document.getElementById(`slot-destination-${i}`).value,
+            preferredTime: document.getElementById(`preferred-time-${i}`).value,
+            aircraftType: document.getElementById(`aircraft-type-${i}`).value,
+          });
+        }
+
+        const maxBlockTime = parseInt(document.getElementById("max-block-time").value) || 180;
+
+        // Send request to backend
+        fetch(`${API_URL}?action=allocate_slots`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            cityPairs: cityPairs,
+            maxBlockTime: maxBlockTime,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            slotLoading.style.display = "none";
+            slotResults.style.display = "block";
+            displaySlots(data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            slotLoading.style.display = "none";
+            alert("Failed to allocate slots. Please try again later.");
+          });
+      });
+
+      // Display Allocated Slots
+      function displaySlots(slots) {
+        slotList.innerHTML = "";
+
+        if (slots.length === 0) {
+          slotList.innerHTML = "<p>No slots could be allocated. Please try different parameters.</p>";
+          return;
+        }
+
+        slots.forEach((slot) => {
+          const slotCard = document.createElement("div");
+          slotCard.className = "slot-card";
+          slotCard.innerHTML = `
+                <div>
+                    <strong>${slot.origin} → ${slot.destination}</strong><br>
+                    Slot ID: ${slot.id}<br>
+                    Airline: ${slot.airline}
+                </div>
+                <div>
+                    Slot Time: ${slot.slotTime}<br>
+                    Block Time: ${slot.blockTime} min<br>
+                    Aircraft: ${slot.aircraft}
+                </div>
+                <div>
+                    Status: Allocated
+                </div>
+            `;
+          slotList.appendChild(slotCard);
+        });
+      }
+
+      // Search Flights
+      searchForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        loadingIndicator.style.display = "block";
+        flightsSection.style.display = "none";
+        bookingsSection.style.display = "none";
+        successMessage.style.display = "none";
+
+        const origin = document.getElementById("origin").value;
+        const destination = document.getElementById("destination").value;
+        const departureDate = document.getElementById("departure-date").value;
+        const returnDate = document.getElementById("return-date").value;
+        const passengers = document.getElementById("passengers").value;
+        const travelClass = document.getElementById("class").value;
+
+        // Send request to backend
+        fetch(`${API_URL}?action=search_flights`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            origin: origin,
+            destination: destination,
+            departureDate: departureDate,
+            returnDate: returnDate,
+            passengers: passengers,
+            class: travelClass,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            loadingIndicator.style.display = "none";
+            flightsSection.style.display = "block";
+            displayFlights(data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            loadingIndicator.style.display = "none";
+            alert("Failed to search flights. Please try again later.");
+          });
+      });
+
+      // Display Flights
+      function displayFlights(flights, targetElement = flightList) {
+        targetElement.innerHTML = "";
+
+        if (flights.length === 0) {
+          targetElement.innerHTML = "<p class='no-items-message'>No flights found for your search criteria. Please try different dates or locations.</p>";
+          return;
+        }
+
+        flights.forEach((flight) => {
+          const flightCard = document.createElement("div");
+          flightCard.className = "flight-card";
+          flightCard.innerHTML = `
+                <div class="airline-logo">✈</div>
+                <div class="flight-details">
+                    <div class="flight-route">
+                        <div>
+                            <div class="flight-time">${flight.departureTime}</div>
+                            <div class="flight-cities">${flight.departureCity}</div>
+                        </div>
+                        <div>→</div>
+                        <div>
+                            <div class="flight-time">${flight.arrivalTime}</div>
+                            <div class="flight-cities">${flight.arrivalCity}</div>
+                        </div>
+                    </div>
+                    <div class="flight-info">
+                        <span>${flight.airline}</span>
+                        <span>${flight.duration} min</span>
+                        <span>${flight.stops}</span>
+                        <span class="block-time">Block: ${flight.blockTime} min</span>
+                    </div>
+                </div>
+                <div class="flight-price">
+                    <div class="price-amount">$${flight.price}</div>
+                    <button class="book-btn" data-flight-id="${flight.id}">Book Now</button>
+                </div>
+            `;
+          targetElement.appendChild(flightCard);
+
+          // Add event listener to book button
+          const bookBtn = flightCard.querySelector(".book-btn");
+          bookBtn.addEventListener("click", () => {
+            openBookingModal(flight);
+          });
+        });
+      }
+
+      // Load All Flights for My Bookings Tab
+      function loadAllFlights() {
+        allFlightsLoading.style.display = "block";
+        allFlightsList.innerHTML = "";
+
+        fetch(`${API_URL}?action=get_all_flights`)
+          .then((response) => response.json())
+          .then((data) => {
+            allFlightsLoading.style.display = "none";
+
+            if (data.length === 0) {
+              allFlightsList.innerHTML = "<p class='no-items-message'>No flights available at the moment.</p>";
+              return;
+            }
+
+            // Format flights for display
+            const formattedFlights = data.map(flight => ({
+              id: flight.id,
+              airline: flight.airline,
+              departureTime: flight.departure_time.substr(0, 5),
+              arrivalTime: flight.arrival_time.substr(0, 5),
+              departureCity: flight.origin,
+              arrivalCity: flight.destination,
+              duration: flight.duration,
+              stops: flight.stops == 0 ? 'Non-stop' : flight.stops + ' stop(s)',
+              price: flight.price,
+              blockTime: flight.block_time
+            }));
+
+            displayFlights(formattedFlights, allFlightsList);
+          })
+          .catch((error) => {
+            console.error("Error loading flights:", error);
+            allFlightsLoading.style.display = "none";
+            allFlightsList.innerHTML = "<p class='no-items-message'>Failed to load flights. Please try again later.</p>";
+          });
+      }
+
+      // Open Booking Modal
+      function openBookingModal(flight) {
+        bookingFlightId.value = flight.id;
+        selectedFlightDetails.innerHTML = `
+            <div class="selected-flight">
+                <h3>${flight.departureCity} to ${flight.arrivalCity}</h3>
+                <p><strong>Airline:</strong> ${flight.airline}</p>
+                <p><strong>Flight:</strong> ${flight.id}</p>
+                <p><strong>Departure:</strong> ${flight.departureTime}</p>
+                <p><strong>Arrival:</strong> ${flight.arrivalTime}</p>
+                <p><strong>Duration:</strong> ${flight.duration} min</p>
+                <p><strong>Price:</strong> $${flight.price}</p>
+            </div>
+        `;
+
+        // Pre-fill email if available
+        if (bookingEmail.value) {
+          document.getElementById("email").value = bookingEmail.value;
+        }
+
+        bookingModal.style.display = "flex";
+      }
+
+      // Close Modal
+      closeModal.addEventListener("click", () => {
+        bookingModal.style.display = "none";
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === bookingModal) {
+          bookingModal.style.display = "none";
+        }
+      });
+
+      // Submit Booking Form
+      bookingForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const flightId = bookingFlightId.value;
+        const firstName = document.getElementById("first-name").value;
+        const lastName = document.getElementById("last-name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+
+        // Send booking data to backend
+        fetch(`${API_URL}?action=book_flight`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            flightId: flightId,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phone: phone,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              bookingForm.reset();
+              bookingModal.style.display = "none";
+              successMessage.style.display = "block";
+
+              // Update the email field for viewing bookings
+              bookingEmail.value = email;
+
+              // Auto-refresh the bookings if visible
+              if (document.getElementById("my-bookings-tab").classList.contains("active")) {
+                fetchBookings();
+              }
+
+              window.scrollTo(0, 0);
+            } else {
+              alert("Booking failed: " + (data.error || "Unknown error"));
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Failed to process booking. Please try again later.");
+          });
+      });
+
+      // Fetch User Bookings
+      function fetchBookings() {
+        const email = bookingEmail.value;
+
+        if (!email) {
+          bookingList.innerHTML = "<div class='no-items-message'>Enter your email address to view your bookings</div>";
+          return;
+        }
+
+        bookingList.innerHTML = "<div class='loading'><div class='spinner'></div><p>Loading your bookings...</p></div>";
+
+        fetch(`${API_URL}?action=get_bookings`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            displayBookings(data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            bookingList.innerHTML = "<p class='no-items-message'>Failed to load bookings. Please try again later.</p>";
+          });
+      }
+
+      // Display Bookings
+      function displayBookings(bookings) {
+        bookingList.innerHTML = "";
+
+        if (bookings.length === 0) {
+          bookingList.innerHTML = "<p class='no-items-message'>You have no bookings with this email address.</p>";
+          return;
+        }
+
+        bookings.forEach((booking) => {
+          const bookingCard = document.createElement("div");
+          bookingCard.className = "booking-card";
+
+          const statusClass = booking.status === "Confirmed" ? "booking-status" : "booking-status booking-status-cancelled";
+
+          bookingCard.innerHTML = `
+                <div class="booking-details">
+                    <h3>${booking.flight.departureCity} to ${booking.flight.arrivalCity}</h3>
+                    <p><strong>Booking ID:</strong> ${booking.id}</p>
+                    <p><strong>Flight:</strong> ${booking.flight.airline} ${booking.flight.id}</p>
+                    <p><strong>Passenger:</strong> ${booking.passenger.firstName} ${booking.passenger.lastName}</p>
+                    <p><strong>Date:</strong> ${booking.date}</p>
+                    <p><strong>Status:</strong> <span class="${statusClass}">${booking.status}</span></p>
+                </div>
+                <div class="booking-actions">
+                    <div class="price-amount">$${booking.flight.price}</div>
+                    ${booking.status === "Confirmed"
+                      ? `<button class="cancel-btn" data-booking-id="${booking.id}">Cancel Booking</button>`
+                      : ""}
+                </div>
+            `;
+          bookingList.appendChild(bookingCard);
+        });
+
+        // Add cancel button event listeners
+        const cancelButtons = bookingList.querySelectorAll(".cancel-btn");
+        cancelButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const bookingId = button.getAttribute("data-booking-id");
+            cancelBooking(bookingId);
+          });
+        });
+      }
+
+      // Cancel Booking
+      function cancelBooking(bookingId) {
+        if (confirm("Are you sure you want to cancel this booking?")) {
+          const email = bookingEmail.value;
+
+          fetch(`${API_URL}?action=cancel_booking`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              bookingId: bookingId,
+              email: email,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                fetchBookings(); // Refresh the bookings list
+              } else {
+                alert("Failed to cancel booking: " + (data.error || "Unknown error"));
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("Failed to cancel booking. Please try again later.");
+            });
+        }
+      }
+
+      // Initialize app
+      showHomePage();
+
+      // Set default date to tomorrow for slot allocation
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      if (document.getElementById("preferred-time-1")) {
+        document.getElementById("preferred-time-1").value = "12:00";
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, {
+          threshold: 0.1
+        });
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+
+        // Add click event for the second CTA button
+        document.getElementById('get-started-btn-2').addEventListener('click', () => {
+          showBookingPage();
+        });
+      });
+    </script>
+  </body>
+</html>
