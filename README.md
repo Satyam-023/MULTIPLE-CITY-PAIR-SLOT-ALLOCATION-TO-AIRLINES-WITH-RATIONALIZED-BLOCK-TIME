@@ -1,0 +1,2 @@
+# MULTIPLE-CITY-PAIR-SLOT-ALLOCATION-TO-AIRLINES-WITH-RATIONALIZED-BLOCK-TIME
+MULTIPLE CITY PAIR SLOT ALLOCATION TO AIRLINES WITH RATIONALIZED BLOCK TIME Project Description - This project focuses on optimizing the allocation of flight slots across multiple city pairs for airlines, with a special emphasis on rationalizing block time — the scheduled duration from gate departure at the origin to gate arrival
